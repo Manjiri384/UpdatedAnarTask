@@ -1,0 +1,78 @@
+<app-top-bar></app-top-bar>
+<h1 style="margin-left:10px">UnCompletedTask</h1>
+<div
+  style=" border: 1px dashed #6fbdbb;padding: 8px; width: 98%;
+border-radius: 0.6rem;overflow-y: scroll; scrollbar-width: none;
+ font-size: 16px; margin: 42px 5px 5px 5px;"
+  placeholder="Start typing to search"
+  name="sb"
+>
+  <div class="dataContainer" style="width: 100%;height:40vh">
+    <div
+      *ngFor="let item of unCompletedTask"
+      class="searchable-component-style selectedCard"
+    >
+      <input
+        type="checkbox"
+        style="margin: 0px 8px 0px 0px;width: 22px; "
+        class="largerCheckbox"
+        (change)="getUserCheck($event, item.title)"
+      />{{ item.title }}
+    </div>
+  </div>
+</div>
+<h1 style="margin-left:10px">CompletedTask</h1>
+<div
+  style=" border: 1px dashed #6fbdbb;padding: 8px; width: 98%;
+border-radius: 0.6rem;overflow-y: scroll; scrollbar-width: none;
+ font-size: 16px; margin: 42px 5px 5px 5px;"
+  placeholder="Start typing to search"
+  name="sb"
+>
+  <div class="dataContainer" style="width: 100%; height:40vh;">
+    <div
+      *ngFor="let item of completedTask.reverse()"
+      class="searchable-component-style selectedCardActive"
+    >
+      <input
+        type="checkbox"
+        style="margin: 0px 8px 0px 0px;width: 22px; "
+        class="largerCheckbox"
+        [checked]="item.completed"
+      />
+      {{ item.title }} <button (click)="delete(item.title)" value="x">X</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="contianer">
+  <div class="dataContainer" style="width: 48vw;">
+    <div
+      *ngFor="let item of unCompletedTask"
+      class="searchable-component-style selectedCard"
+    >
+      <input
+        type="checkbox"
+        style="margin: 0px 8px 0px 0px;width: 22px; "
+        class="largerCheckbox"
+        (change)="getUserCheck($event, item.title)"
+      />{{ item.title }}
+    </div>
+  </div>
+
+  <div class="dataContainer" style="width: 48vw;">
+   
+    <div
+      *ngFor="let item of completedTask"
+      class="searchable-component-style selectedCardActive"
+    >
+      <input
+        type="checkbox"
+        style="margin: 0px 8px 0px 0px;width: 22px; "
+        class="largerCheckbox"
+        [checked]="item.completed"
+      />
+      {{ item.title }}
+    </div>
+  </div>
+</div> -->
